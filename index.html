@@ -28,11 +28,19 @@
     </div>
 
     <script>
+        let buku = [
+            {"nama": "sherlock", "jumlah": 2},
+            {"nama": "lupin", "jumlah": 2},
+            {"nama": "aladin", "jumlah": 2}
+        ];
+
         function checkAvailability() {
             var jumlah = document.getElementById('jumlah').value;
             var pilihan = document.getElementById('pilihan').value;
             console.log("Jumlah: " + jumlah);
             console.log("Pilihan: " + pilihan);
+
+            // Lakukan pengecekan buku di sini
         }
     </script>
 </body>
