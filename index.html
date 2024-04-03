@@ -35,10 +35,10 @@
         ];
 
         function checkAvailability() {
-            var jumlah = document.getElementById('jumlah').value;
+            var jumlah = parseInt(document.getElementById('jumlah').value);
             var pilihan = document.getElementById('pilihan').value;
             
-            if (jumlah.trim() === '') {
+            if (jumlah.toString().trim() === '') {
                 alert('Mohon masukkan jumlah buku yang ingin dipinjam.');
                 return;
             }
@@ -48,15 +48,24 @@
 
             // Pencarian buku
             var bukuDitemukan = false;
+            var jumlahBukuDitemukan = 0;
             for (var i = 0; i < buku.length; i++) {
                 if (buku[i].nama === pilihan) {
                     bukuDitemukan = true;
+                    jumlahBukuDitemukan = buku[i].jumlah;
                     break;
                 }
             }
 
             if (!bukuDitemukan) {
                 alert('Buku tidak ditemukan.');
+                return;
+            }
+
+            // Pengecekan jumlah buku yang tersedia
+            if (jumlah > jumlahBukuDitemukan) {
+                alert('Jumlah buku tidak tersedia.');
+                return;
             }
 
             // Lakukan pengecekan buku di sini
