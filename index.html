@@ -37,6 +37,12 @@
         function checkAvailability() {
             var jumlah = document.getElementById('jumlah').value;
             var pilihan = document.getElementById('pilihan').value;
+            
+            if (jumlah.trim() === '') {
+                alert('Mohon masukkan jumlah buku yang ingin dipinjam.');
+                return;
+            }
+
             console.log("Jumlah: " + jumlah);
             console.log("Pilihan: " + pilihan);
 
